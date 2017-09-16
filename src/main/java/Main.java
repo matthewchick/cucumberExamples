@@ -12,7 +12,7 @@ work with multiple data using DataTable
 Highlight the statement and Use alt + enter to go to LoginStep
 Use Scenario Outline
 Working with Hooks
-Working with Dependency Injections with Picocontainer => install cucumber Picocontroller
+Working with Dependency Injections with Picocontainer => install cucumber Picocontainer
 */
 
 public class Main {

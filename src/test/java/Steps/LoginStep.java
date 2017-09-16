@@ -1,5 +1,6 @@
 package Steps;
 
+import Base.BaseUtil;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -13,7 +14,14 @@ import java.util.Map;
 /*
   In Java, there are two hooks @Before and @After
  */
-public class LoginStep {
+public class LoginStep extends BaseUtil {
+
+    private BaseUtil base;
+
+    public LoginStep(BaseUtil base) {    // DI
+        this.base = base;
+    }
+
     @Given("^I navigate to the login page$")
     public void iNavigateToTheLoginPage() throws Throwable {
         System.out.println("I navigate to the login page");
@@ -58,6 +66,7 @@ public class LoginStep {
 
     @Then("^I should see the userform page$")
     public void iShouldSeeTheUserformPage() throws Throwable {
+        System.out.println("The driver is : " + base.StepInfo);
         System.out.println("I should see the userform page");
 
     }
