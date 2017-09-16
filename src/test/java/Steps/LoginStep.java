@@ -71,6 +71,11 @@ public class LoginStep extends BaseUtil {
 
     }
 
+    @And("^I enter the users email address as Email:admin$")
+    public void iEnterTheUsersEmailAddressAsEmailAdmin() throws Throwable {
+
+    }
+
     /*
     public class User {
         public String username;

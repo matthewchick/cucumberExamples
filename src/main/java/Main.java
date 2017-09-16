@@ -13,6 +13,12 @@ Highlight the statement and Use alt + enter to go to LoginStep
 Use Scenario Outline
 Working with Hooks
 Working with Dependency Injections with Picocontainer => install cucumber Picocontainer
+Step argument transformation -> Transformer<String>
+- Extend Transormer<>class for the type to be transformed
+- Override transform method
+- Call @Transform annotation as parameter in calling method param
+e.g Add 'I enter the users email address as Email:admin' inside Login.feature
+    and how to transform Email:admin
 */
 
 public class Main {
