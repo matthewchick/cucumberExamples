@@ -19,6 +19,7 @@ public class Hook extends BaseUtil{
         System.out.println("Opening the browser : MOCK");
         // Passing a dummy WebDriver instance
         base.StepInfo = "FirefoxDriver";
+        System.out.println();
     }
     @After
     public void TearDownTest(Scenario scenario) {
@@ -27,5 +28,6 @@ public class Hook extends BaseUtil{
             System.out.println(scenario.getName());
         }
         System.out.println("Closing the browser : MOCK");
+        System.out.println();
     }
 }

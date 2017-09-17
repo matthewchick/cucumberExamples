@@ -1,8 +1,11 @@
 package Steps;
 
 import Base.BaseUtil;
+import Transformation.EmailTransform;
+import Transformation.SalaryCountTransformer;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
+import cucumber.api.Transform;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -46,17 +49,32 @@ public class LoginStep extends BaseUtil {
             System.out.println("The UsersName is " + user.username);
             System.out.println("The Password is " + user.password);
         } */
+
         Map<String, String> mapacol;
         mapacol = table.asMap(String.class, String.class);
         System.out.println("Username: " + mapacol.get("username") + "  Password: " + mapacol.get("password") );
 
     }
 
+    @And("^I enter the users email address as Email:([^\"]*)$")
+    public void iEnterTheUsersEmailAddressAsEmailAdmin(@Transform(EmailTransform.class) String email) throws Throwable {
+        System.out.println("The email Address is " + email);
+        System.out.println();
+    }
+
+    @And("^I verify the count of my salary digits for Rs (\\d+)$")
+    public void iVerifyTheCountOfMySalaryDigitsForRs(@Transform(SalaryCountTransformer.class) int salary) throws Throwable {
+        System.out.println("My Salary digits count is :" + salary);
+        System.out.println();
+    }
+
     @And("^I enter ([^\"]*) and ([^\"]*)$")
     public void iEnterUsernameAndPassword(String Username, String Password) throws Throwable {
         System.out.println("Username is : " + Username);
         System.out.println("Password is : " + Password);
+        System.out.println();
     }
+
 
     @And("^I click login button$")
     public void iClickLoginButton() throws Throwable {
@@ -68,11 +86,6 @@ public class LoginStep extends BaseUtil {
     public void iShouldSeeTheUserformPage() throws Throwable {
         System.out.println("The driver is : " + base.StepInfo);
         System.out.println("I should see the userform page");
-
-    }
-
-    @And("^I enter the users email address as Email:admin$")
-    public void iEnterTheUsersEmailAddressAsEmailAdmin() throws Throwable {
 
     }
 
